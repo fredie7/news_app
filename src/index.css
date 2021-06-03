@@ -1,13 +1,235 @@
-body {
+*{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* layout */
+.layout {
+  margin: 20px;
 }
+.page-header {
+  height: 4rem;
+  background-color: red;
+}
+.header-container {
+  width: 100%;
+}
+.header-title {
+  font-size: 2rem;
+}
+.header-menu-wrapper {
+  height: 100%;
+  background-color: white;
+  /* width: 40px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.page-header {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  width:100%;
+  height: 5rem;
+}
+.header-menu {
+  height: 25%;
+  background-color: black;
+  width: 4rem;
+}
+.search-box {
+  padding: 5px;
+}
+.search-box input {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 10px;
+  font-size: 24px;
+  border-radius: 5px;
+}
+
+.news-container {
+  background-color: rgb(192, 100, 100);
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 10px;
+  height: 80rem;
+}
+.news-right-container {
+  margin-top: 20px;
+}
+.news-item {
+  height: 20rem;
+  background-color: green;
+}
+.news-image {
+  height: 75%;
+  background-color: rgb(101, 128, 101);
+}
+.news-description {
+  height: 25%;
+  font-size: 2.1rem;
+  overflow: hidden;
+}
+.news-right-container {
+  height: 20rem;
+}
+.news-right-item {
+  background-color: red;
+  height: 14rem;
+}
+.news-right-description {
+  font-size: 1.6rem;
+}
+.news-right-image {
+  height: 80%;
+  background-color: rgb(101, 128, 101);
+}
+.news-right-description {
+  height: 20%;
+  /* font-size: 1.5rem; */
+}
+
+/* body */
+
+.news-body {
+  margin-top: 7px;
+  height: 20rem;
+  background-color: #857474;
+}
+
+.news-body-container {
+  background-color: blueviolet;
+  /* height: 15rem; */
+  margin-top: 10px;
+  padding: 10px;
+}
+.news-body-item {
+  height: 70%;
+}
+.news-body-description {
+  height: 30%;
+  background-color: darkgoldenrod;
+  font-size: 1.6rem;
+}
+.wrapper {
+  height: 100vh;
+  /* background: cadetblue; */
+}
+
+/* news details */
+.details-container {
+  padding: 10px;
+  margin-top: 1.8rem;
+}
+.details-image {
+  height: 11rem;
+  /* width: 100%; */
+  background-color: red;
+  margin-top: 1rem;
+}
+.details-story {
+  margin-top: 2rem;
+}
+.time, .date {
+  font-size: 1.5rem;
+}
+.time {
+  border-right: 1px solid black;
+  margin-right: 10px;
+  padding-right: 10px;
+}
+.at {
+  margin-right: 5px;
+  font-size: 1.5rem;
+}
+
+/* menu */
+
+.menu-items {
+  /* background-color: rgb(85, 46, 46); */
+  background-color:#f1f1f1;
+  height: 56vh;
+}
+
+.menu-item h4 {
+  padding: 10px;
+  /* background-color:#f1f1f1; */
+  background-color: rgb(54, 38, 38);
+  border-radius: 7px;
+  color: white;
+  margin-top: 0.8rem;
+  font-size: 1.8rem;
+  text-align: center;
+  font-family: cursive;
+}
+
+
+@media only screen and (min-width:768px) {
+  .news-container {
+    display: flex;
+    justify-content: space-between;
+    height: 30rem;
+  }
+  
+  .news-right-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    background-color: black;
+    height: 100%;
+    width: 100%;
+    flex-basis: 49%;
+    margin-top: 0;
+  }
+  .news-right-item {
+    flex-basis: 48%;
+    /* height: 100%; */
+  }
+  .news-item {
+    flex-basis: 49%;
+    height: 100%;
+  }
+  .news-body-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 15px;
+  }
+  .news-body {
+    flex-basis: 32%;
+    height: 20rem;
+  }
+
+  /* news details */
+  .details-item {
+    display: flex;
+    justify-content: space-between;
+  }
+  .details-header, .details-image {
+    flex-basis: 49%;
+  }
+  .details-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .details-image {
+    margin-top: 0;
+  }
+  .details-story {
+    column-count: 2;
+    font-size: 2rem;
+    column-rule: 1px solid rgb(83, 211, 104);
+  }
+  .menu-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  .menu-item {
+    flex-basis: 30%;
+  }
+}
+
