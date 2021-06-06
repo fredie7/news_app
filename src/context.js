@@ -1,6 +1,5 @@
 import React,{useReducer,useContext,useEffect} from 'react';
 
-import {news} from './data'
 
 import {SET_NEWS} from './actions'
 import reducer from './reducer';

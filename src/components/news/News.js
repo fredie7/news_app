@@ -1,6 +1,5 @@
 import React from 'react'
 import {useGlobalContext} from '../../context'
-import { news } from '../../data'
 
 const News = () => {
     const { newsFeed } = useGlobalContext()
