@@ -52,7 +52,8 @@
 }
 
 .news-container {
-  background-color: rgb(192, 100, 100);
+  /* background-color: rgb(192, 100, 100); */
+  background-color: white;
   width: 100%;
   margin-top: 0.5rem;
   padding: 10px;
@@ -112,7 +113,8 @@ p{
 }
 
 .news-body-container {
-  background-color: blueviolet;
+  /* background-color: blueviolet; */
+  background-color: white;
   /* height: 15rem; */
   margin-top: 10px;
   padding: 10px;
