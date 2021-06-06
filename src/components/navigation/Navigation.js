@@ -9,8 +9,8 @@ const Navigation = () => {
                         <h3 className="header-title">fredieHillz news</h3>
                         <div className="updated">
                             <span className="at">@</span>
-                            <span className="time">time</span>
-                            <span className="date">date</span>
+                            <span className="time">{new Date().toLocaleTimeString()}</span>
+                            <span className="date">{new Date().toLocaleDateString()}</span>
                         </div>
                     </div>
                     <div className="header-menu-wrapper">

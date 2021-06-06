@@ -4,13 +4,15 @@
   box-sizing: border-box;
 }
 
+
 /* layout */
 .layout {
   margin: 20px;
 }
 .page-header {
   height: 4rem;
-  background-color: red;
+  background-color: rgb(49, 36, 36);
+  color: white;
 }
 .header-container {
   width: 100%;
@@ -61,7 +63,8 @@
 }
 .news-item {
   height: 20rem;
-  background-color: green;
+  background-color: black;
+  color: white;
 }
 .news-image {
   height: 75%;
@@ -72,12 +75,17 @@
   font-size: 2.1rem;
   overflow: hidden;
 }
+p{
+  font-size: 1rem;
+}
 .news-right-container {
   height: 20rem;
 }
 .news-right-item {
-  background-color: red;
+  background-color: black;
+  color: white;
   height: 14rem;
+  position: relative;
 }
 .news-right-description {
   font-size: 1.6rem;
@@ -92,6 +100,10 @@
 }
 
 /* body */
+
+.news-body-story p{
+  font-size: 1rem;
+}
 
 .news-body {
   margin-top: 7px;
@@ -110,8 +122,20 @@
 }
 .news-body-description {
   height: 30%;
-  background-color: darkgoldenrod;
+  background-color: black;
+  color: white;
   font-size: 1.6rem;
+}
+.news-body-description {
+  overflow: hidden;
+}
+.news-body-image {
+  height: 100%;
+  width: 100%;
+}
+.news-body-image img{
+  height: 100%;
+  width: 100%;
 }
 .wrapper {
   height: 100vh;
@@ -165,6 +189,39 @@
   font-family: cursive;
 }
 
+.news-image img {
+  height: 100%;
+  width: 100%;
+}
+.news-right-image img {
+  height: 100%;
+  width: 100%;
+}
+.news-right-description {
+  overflow: hidden;
+}
+.news-right-description p{
+  height: 100%;
+  width: 100%;
+}
+.news-body-headline {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 3rem;
+  font-weight: bolder;
+  color: white;
+  letter-spacing: 0.17rem;
+}
+.news-body-headline p {
+  /* font-size: 0.1rem; */
+}
+.news-body {
+  position: relative;
+}
+
 
 @media only screen and (min-width:768px) {
   .news-container {
@@ -190,6 +247,7 @@
   .news-item {
     flex-basis: 49%;
     height: 100%;
+    position: relative;
   }
   .news-body-container {
     display: flex;
@@ -201,6 +259,8 @@
     flex-basis: 32%;
     height: 20rem;
   }
+  
+
 
   /* news details */
   .details-item {

@@ -1,5 +1,7 @@
 import React,{useReducer,useContext,useEffect} from 'react';
 
+import {news} from './data'
+
 import {SET_NEWS} from './actions'
 import reducer from './reducer';
 
@@ -29,8 +31,8 @@ const AppProvider = ({children})=> {
     }
 
     useEffect(()=> {
-        // fetchNews(`https://newsapi.org/v2/everything?q=${state.query}&from=2021-04-20&sortBy=publishedAt&apiKey=${API_KEY}`)
         fetchNews(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`)
+        // fetchNews()
     },[])
 
     return(
