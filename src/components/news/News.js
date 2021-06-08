@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 
 const News = () => {
     const history = useHistory()
-    const { newsFeed } = useGlobalContext()
+    const { newsFeed, handleSearch, query } = useGlobalContext()
     console.log(newsFeed)
     let firstNews = newsFeed.slice(0,1)
 
@@ -78,9 +78,12 @@ const News = () => {
         <>
             <div className="wrapper">
                 <div className="search-container">
-                    <div className="search-box">
-                        <input type="text"/>
-                    </div>
+                    <form className="search-box" onSubmit={e => e.preventDefault()}>
+                        <input type="text" 
+                            value={query}
+                            onChange={e=>handleSearch(e.target.value)}
+                        />
+                    </form>
                 </div>
                 <div className="news-body-wrapper">
                     <div className="news-container">

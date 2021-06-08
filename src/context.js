@@ -1,12 +1,12 @@
 import React,{useReducer,useContext,useEffect} from 'react';
 import {uuid} from 'uuidv4';
 
-import {SET_NEWS} from './actions'
+import {SET_NEWS, HANDLE_SEARCH} from './actions'
 import reducer from './reducer';
 
 const initialState = {
     newsFeed : [],
-    query: 'arsenal',
+    query: 'technology',
 }
 const API_KEY = '09f20bd7125649cd8f8d8f550863dd13'
 
@@ -19,6 +19,7 @@ const AppProvider = ({children})=> {
         try {
             const response = await fetch(url)
             const data = await response.json()
+            console.log(data)
             let newsData = []
             // let id = new Date().getTime()
             let id = uuid()
@@ -27,6 +28,7 @@ const AppProvider = ({children})=> {
                 singleNews.newsID = i + 1
                 newsData = [...newsData, singleNews]
             })
+            console.log(newsData)
             dispatch({
                 type: SET_NEWS,
                 payload: {newsFeed: newsData}
@@ -37,13 +39,17 @@ const AppProvider = ({children})=> {
         }
     }
 
+const handleSearch = query => {
+    dispatch({ type: HANDLE_SEARCH, payload: query })
+}
+
     useEffect(()=> {
-        fetchNews(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`)
-        // fetchNews()
+        // fetchNews(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`)
+        fetchNews(`https://newsapi.org/v2/everything?q=${state.query}&apiKey=${API_KEY}`)
     },[])
 
     return(
-        <AppContext.Provider value={{...state}}>
+        <AppContext.Provider value={{...state, handleSearch}}>
             {children}
         </AppContext.Provider>
     )
