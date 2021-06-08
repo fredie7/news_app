@@ -1,15 +1,24 @@
 import React from 'react'
+import { useGlobalContext } from '../../context'
 
-const NewsDetails = () => {
+const NewsDetails = (props) => {
+    // console.log(props)
+    let newsId = props.match.params.id
+    console.log(newsId)
+    const { newsFeed } = useGlobalContext()
+    const selectedNews = newsFeed.find(item => item.newsID == newsId) || {}
+    console.log(selectedNews)
+    const { urlToImage, content, title, publishedAt,description } = selectedNews
+    console.log(urlToImage, content, title, publishedAt, description)
     return (
         <>
           <div className="details-container">
             <div className="details-item">
                 <div className="details-header">
-                    <h3>NEWS HEADLINE</h3>
+                    <h3>{title}</h3>
                 </div>
                 <div className="details-image">
-                    IMAGE
+                    <img src={urlToImage} alt=""/>
                 </div>
             </div> 
             <div className="updated">
@@ -19,29 +28,7 @@ const NewsDetails = () => {
                 </div>
             </div> 
             <div className="details-story">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni quaerat 
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni quaerat 
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni quaerat 
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni quaerat 
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni quaerat 
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni quaerat 
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni quaerat 
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni quaerat 
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni quaerat 
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni quaerat 
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni quaerat 
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni quaerat 
-                itaque similique veniam illo facere, voluptatem necessitatibus inventore
-                 autem, aliquam unde. Asperiores nemo quidem ipsum assumenda accusamus 
-                 ratione veritatis, explicabo odio distinctio dolorum, ab libero hic 
-                 repellendus expedita autem quam magnam, suscipit neque minus soluta 
-                 itaque quisquam cupiditate! Molestias ullam vel dolor architecto, tempora 
-                 perspiciatis molestiae sit pariatur quasi minima aliquam amet totam saepe 
-                 magnam commodi quo odio tempore non nesciunt unde repellat possimus labore? 
-                 Itaque dignissimos ratione asperiores non optio culpa fuga possimus volu
-                 ptatibus repudiandae molestias tempora,
-                 a iure quibusdam facilis numquam rerum veniam, totam sequi, vel repelle
-                 ndus ab!
+                <p>{description}</p>
             </div>
           </div>  
         </>

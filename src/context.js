@@ -1,5 +1,5 @@
 import React,{useReducer,useContext,useEffect} from 'react';
-
+import {uuid} from 'uuidv4';
 
 import {SET_NEWS} from './actions'
 import reducer from './reducer';
@@ -19,9 +19,17 @@ const AppProvider = ({children})=> {
         try {
             const response = await fetch(url)
             const data = await response.json()
+            let newsData = []
+            // let id = new Date().getTime()
+            let id = uuid()
+            data.articles.forEach((news, i)=> {
+                let singleNews = {...news}
+                singleNews.newsID = i + 1
+                newsData = [...newsData, singleNews]
+            })
             dispatch({
                 type: SET_NEWS,
-                payload: {newsFeed: data.articles}
+                payload: {newsFeed: newsData}
             })
             // console.log(data.articles)
         } catch (error) {
