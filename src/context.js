@@ -1,7 +1,7 @@
 import React,{useReducer,useContext,useEffect} from 'react';
 import {uuid} from 'uuidv4';
 
-import {SET_NEWS, HANDLE_SEARCH} from './actions'
+import {SET_NEWS, HANDLE_SEARCH,} from './actions'
 import reducer from './reducer';
 
 const initialState = {
@@ -21,8 +21,6 @@ const AppProvider = ({children})=> {
             const data = await response.json()
             console.log(data)
             let newsData = []
-            // let id = new Date().getTime()
-            let id = uuid()
             data.articles.forEach((news, i)=> {
                 let singleNews = {...news}
                 singleNews.newsID = i + 1
@@ -46,10 +44,10 @@ const handleSearch = query => {
     useEffect(()=> {
         // fetchNews(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`)
         fetchNews(`https://newsapi.org/v2/everything?q=${state.query}&apiKey=${API_KEY}`)
-    },[])
+    },[state.query])
 
     return(
-        <AppContext.Provider value={{...state, handleSearch}}>
+        <AppContext.Provider value={{...state, handleSearch,}}>
             {children}
         </AppContext.Provider>
     )

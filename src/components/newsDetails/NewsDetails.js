@@ -1,15 +1,13 @@
 import React from 'react'
 import { useGlobalContext } from '../../context'
+import { Link } from 'react-router-dom'
 
 const NewsDetails = (props) => {
-    // console.log(props)
     let newsId = props.match.params.id
-    console.log(newsId)
     const { newsFeed } = useGlobalContext()
     const selectedNews = newsFeed.find(item => item.newsID == newsId) || {}
-    console.log(selectedNews)
-    const { urlToImage, content, title, publishedAt,description } = selectedNews
-    console.log(urlToImage, content, title, publishedAt, description)
+    const { urlToImage, content, title, publishedAt,description,url } = selectedNews
+    console.log(urlToImage, content, title, publishedAt, description, url)
     return (
         <>
           <div className="details-container">
@@ -28,7 +26,11 @@ const NewsDetails = (props) => {
                 </div>
             </div> 
             <div className="details-story">
-                <p>{description}</p>
+                <p>{description} 
+                    <a target='_blank'className='link' href={url}>
+                        <span>.........read more</span>
+                    </a>
+                </p>
             </div>
           </div>  
         </>

@@ -1,4 +1,5 @@
 import React from 'react'
+import Menu from '../menu/Menu'
 
 const Navigation = () => {
     return (
@@ -13,7 +14,7 @@ const Navigation = () => {
                             <span className="date">{new Date().toLocaleDateString()}</span>
                         </div>
                     </div>
-                    <div className="header-menu-wrapper">
+                    <div className="header-menu-wrapper" >
                         <div className="header-menu"></div>
                         <div className="header-menu"></div>
                         <div className="header-menu"></div>

@@ -5,8 +5,8 @@ import { useHistory } from 'react-router-dom';
 const News = () => {
     const history = useHistory()
     const { newsFeed, handleSearch, query } = useGlobalContext()
-    console.log(newsFeed)
-    let firstNews = newsFeed.slice(0,1)
+    const stories = newsFeed
+    let firstNews = stories.slice(0,1)
 
     const first = firstNews.map(item=> {
         return(
@@ -28,7 +28,7 @@ const News = () => {
         )
     })
     
-    let secondToFifth = newsFeed.slice(1,5)
+    let secondToFifth = stories.slice(1,5)
     
     const second = secondToFifth.map(item=> {
         return (
@@ -48,7 +48,7 @@ const News = () => {
         )
     })
 
-    let fifthToEnd = newsFeed.slice(5,newsFeed.length - 1)
+    let fifthToEnd = stories.slice(5,newsFeed.length - 1)
     let third = fifthToEnd.map(item=> {
         return (
             <div className="news-body" onClick={()=> {history.push({pathname:`/newsDetails/${item.newsID}`,news:item})}}>
@@ -78,10 +78,10 @@ const News = () => {
         <>
             <div className="wrapper">
                 <div className="search-container">
-                    <form className="search-box" onSubmit={e => e.preventDefault()}>
+                    <form className="search-box" onSubmit={e => e.preventDefault()} placeholder='search for any news item'>
                         <input type="text" 
                             value={query}
-                            onChange={e=>handleSearch(e.target.value)}
+                            onChange ={e=>handleSearch(e.target.value)}
                         />
                     </form>
                 </div>
