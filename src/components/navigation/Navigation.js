@@ -1,5 +1,4 @@
 import React from 'react'
-import Menu from '../menu/Menu'
 
 const Navigation = () => {
     return (

@@ -1,5 +1,4 @@
 import React,{useReducer,useContext,useEffect} from 'react';
-import {uuid} from 'uuidv4';
 
 import {SET_NEWS, HANDLE_SEARCH,} from './actions'
 import reducer from './reducer';

@@ -1,6 +1,5 @@
 import React from 'react'
 import { useGlobalContext } from '../../context'
-import { Link } from 'react-router-dom'
 
 const NewsDetails = (props) => {
     let newsId = props.match.params.id
@@ -27,7 +26,7 @@ const NewsDetails = (props) => {
             </div> 
             <div className="details-story">
                 <p>{description} 
-                    <a target='_blank'className='link' href={url}>
+                    <a target='_blank' rel='noreferrer' className='link' href={url}>
                         <span>.........read more</span>
                     </a>
                 </p>
