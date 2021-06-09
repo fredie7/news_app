@@ -4,7 +4,7 @@ import { useGlobalContext } from '../../context'
 const NewsDetails = (props) => {
     let newsId = props.match.params.id
     const { newsFeed } = useGlobalContext()
-    const selectedNews = newsFeed.find(item => item.newsID == newsId) || {}
+    const selectedNews = newsFeed.find(item => item.newsID === newsId) || {}
     const { urlToImage, content, title, publishedAt,description,url } = selectedNews
     console.log(urlToImage, content, title, publishedAt, description, url)
     return (
