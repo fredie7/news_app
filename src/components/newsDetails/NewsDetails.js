@@ -1,5 +1,5 @@
-import React from 'react'
-import { useGlobalContext } from '../../context'
+import React from 'react';
+import { useGlobalContext } from '../../context';
 
 const NewsDetails = (props) => {
     let newsId = props.match.params.id
